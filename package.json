@@ -1,0 +1,65 @@
+{
+  "name": "dsh-market-dog",
+  "version": "0.4.5",
+  "type": "module",
+  "description": "Market Dog: describe the plugin you want in plain language. It extracts bilingual keywords, matches them against the DSH plugin catalog, and ranks the results by relevance or downloads.",
+  "license": "MIT",
+  "author": "Zhang-Eli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhang-Eli/dsh-market-dog.git"
+  },
+  "homepage": "https://github.com/Zhang-Eli/dsh-market-dog#readme",
+  "bugs": {
+    "url": "https://github.com/Zhang-Eli/dsh-market-dog/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin-market",
+    "search",
+    "semantic-search",
+    "keyword-extraction",
+    "market-dog"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "icon": "icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "logo.png",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "docs/screenshots/",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

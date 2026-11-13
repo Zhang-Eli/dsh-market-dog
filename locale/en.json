@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Market Dog",
+    "description": "Describe the plugin you want in one sentence. Market Dog extracts bilingual keywords, scores every catalog entry against them, and returns matches sorted by relevance or downloads, with keyword chips, categories and download counts so you can tell what a plugin actually does."
+  }
+}

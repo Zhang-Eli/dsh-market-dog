@@ -1,0 +1,6 @@
+# Market Dog: one sidebar entry, one main panel, and a local search API served
+# through /market-dog/api. The Host fetches the public dsh plugin catalog, extracts
+# bilingual keywords from the user's description and ranks catalog entries.
+- insert:
+    - id: market-dog
+      name: dsh-market-dog
