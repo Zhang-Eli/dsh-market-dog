@@ -15,7 +15,7 @@
 | 本地安装 | profile `desktop`，以 `link:C:/Users/Administrator/Documents/dsh-plugins-filter` 依赖安装；`plugin_manager install_bundle` 返回 `application: applied`；link 安装，bundle 版本始终 = 本目录代码版本（当前 0.4.5） |
 | 运行时状态 | 重装后需要**刷新页面**（URL 以运行时提示 / `dsh web` 输出为准，每次重启端口会变）才会加载新的客户端 bundle；刷新后用第 3 节的 Slots inspect 确认 `sidebar.panellist` 有 `{"id":"market-dog","order":22,"active":true}`、`main` 有 key `market-dog` |
 | 测试 | 仓库内没有测试文件；本轮验证用 `/tmp/ms-test/` 下的 `searchtest.mjs`（筛选/分面）、`qualitybench.mjs`（搜索质量双向回归，改 lib/search.js 必跑）、`hosttest.mjs`（Host 路由 + 错误码 + **安装接口**：200/spec 推导、未知插件 404、缺 name 400、无 pluginManager 501；**已安装接口**：只返回 `installed: true` 的 bundle 名、无 pluginManager 501）、`cachetest.mjs`（目录下载失败/磁盘缓存/离线 stale/304 校验，12 项断言）、`refreshjobtest.mjs`（后台刷新：`meta refresh:true` 秒回 + `refresh-status` running→idle、并发搜索单飞合并、离开界面后任务自行完成、源 500 时 stale 兜底，14 断言）、`registertest.mjs`（client 模块槽位注册契约：侧栏 `name/id`、主面板 `name/key`）、`applyrender.mjs`（真 `apply()` + 真 localeSource + React 桩渲染，防黑屏回归）、`browserowsetest.mjs`（浏览模式：`browse:true` 空查询返回全类别条目、按下载量全量排序、`totalMatched`=全目录、类别筛选成员校验、facets 不被自身筛选收窄、非法空查询仍 400）、`render.mjs`（真 client.js → 静态 HTML，供截图；含 `results-install` 安装状态、`results-installed` 已安装行与 `results-preview` 全屏预览镜头），加上 `node --check`。无 e2e |
-| 发布门禁 | `publish_gate` 工具未注入本会话，走手动：`npm pack --dry-run` 25 文件核对 + 发布后 registry tarball sha1 `e04d52354208a63af6c68781a2be022fd026a1f9` 与本地一致；GitHub 已 public；市场 PR 未提（age gate，明天提，条目草稿 `C:/Users/Administrator/AppData/Local/Temp/ms-test/Zhang-Eli__dsh-market-dog.yml`；`screenshots.json` 已推仓库根，市场构建探针会自动读取） |
+| 发布门禁 | `publish_gate` 工具未注入本会话，走手动：`npm pack --dry-run` 25 文件核对 + 发布后 registry tarball sha1 `e04d52354208a63af6c68781a2be022fd026a1f9` 与本地一致；GitHub 已 public；市场条目 PR 已提：[awesome-dsh-plugin#15753](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/15753)（`data/plugins/Zhang-Eli__dsh-market-dog.yml`，category market，双语描述；`screenshots.json` 已推仓库根，市场构建探针自动读取） |
 
 ## 2. 架构地图
 
@@ -156,7 +156,7 @@ cordis_inspect_query platform=client provider=Slots method=listSubTree input={"r
 
 1. 待办：把 `/tmp/ms-test` 脚本（searchtest / qualitybench / hosttest / cachetest / refreshjobtest / registertest / applyrender / browserowsetest）固化进仓库 `test/`，加 `npm test`，记录通过数。
 2. `publish_gate` 工具未注入本会话；下个版本若装上门禁工具，发布前跑全量（0 blocker）。
-3. 市场条目 PR：上游 `check-submission.mjs` 要求仓库 ≥1 天（MIN_AGE_DAYS=1），2026-11-14 之后才能提；条目草稿在 `C:/Users/Administrator/AppData/Local/Temp/ms-test/Zhang-Eli__dsh-market-dog.yml`。合并后市场构建自动读仓库根 `screenshots.json`，无需再为截图提 PR。
+3. 市场条目 PR 已提（2026-11-16，#15753）：上游门禁要求仓库 ≥1 天，已满足；注意 fork 的旧 main 会把历史 one-pack 提交混进 diff，需以**上游 main** 为 base 重建分支（fix_branch.sh，gh api 的 force 布尔要用 -F）。合并后市场构建自动读仓库根 `screenshots.json`，无需再为截图提 PR。
 4. 每次发版回到第 1 节更新版本、tag、shasum、状态行。
 
 ## 5. 关键设计与坑
