@@ -2,7 +2,9 @@
 
 > 给下一个开发 session 的「项目记忆」。发版或收工时更新；新 session 开场先读这份文档，
 > 再读 `CHANGELOG.md` 与 `git log --oneline -10`。
-> 最后更新：2026-11-13（**0.4.5 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.5` + npm `dsh-market-dog@0.4.5`。本版本内容：搜索质量三改（IDF 稀有度加权/域消歧/字面升级）、刷新目录后台化+3 秒浮窗、双击类别按下载量浏览、作者徽标、用户向 README 重写。明细见 CHANGELOG.md。市场条目 PR 未提——上游门禁要求仓库 ≥1 天，2026-11-14 后提）。
+> 最后更新：2026-11-18（**0.4.6 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.6`（`15589c9`）+ npm `dsh-market-dog@0.4.6`，tarball shasum `5371d58e5b04a5d933a094a17a844842e9c6ab91`。本版本内容：GitHub 账号 zhang-eli→wzvx 改名，仓库/作者/元数据全量指向新账号；「My work」徽标同时匹配新旧 owner（市场目录 slug 过渡期新旧并存）。上游市场条目文件仍是 `data/plugins/Zhang-Eli__dsh-market-dog.yml`（#15753 已合入的旧路径），改名需另开上游 PR。0.4.5 内容见 CHANGELOG。）
+>
+> 历史：2026-11-13（**0.4.5 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.5` + npm `dsh-market-dog@0.4.5`。本版本内容：搜索质量三改（IDF 稀有度加权/域消歧/字面升级）、刷新目录后台化+3 秒浮窗、双击类别按下载量浏览、作者徽标、用户向 README 重写。明细见 CHANGELOG.md。市场条目 PR 未提——上游门禁要求仓库 ≥1 天，2026-11-14 后提）。
 
 ## 1. 当前状态
 
@@ -10,9 +12,9 @@
 | --- | --- |
 | 仓库路径 | `C:\\Users\\Administrator\\Documents\\dsh-plugins-filter`（开发工作区） |
 | git | 已初始化：远端 `https://github.com/wzvx/dsh-market-dog`（public，main；2026-11-18 GitHub 账号 zhang-eli→wzvx 改名，remote 已更新）；`9866452` Release 0.4.5（tag `v0.4.5` 指此处）→ `fa8b197` screenshots.json |
-| npm | **已发布 0.4.5**（staged 审核放行，`latest`=0.4.5；registry 里另有自动占位版本 `0.0.0-stage`，非本插件产物、忽略）。`dsh-plugin-scout`、`dsh-plugin-finder` 已被别人占用，勿改回旧名 |
-| 版本 | 0.4.5 三处同步：`package.json`、`index.js` `const VERSION = '0.4.5'`、CHANGELOG 顶部 |
-| 本地安装 | profile `desktop`，以 `link:C:/Users/Administrator/Documents/dsh-plugins-filter` 依赖安装；`plugin_manager install_bundle` 返回 `application: applied`；link 安装，bundle 版本始终 = 本目录代码版本（当前 0.4.5） |
+| npm | **已发布 0.4.6**（`latest`=0.4.6；staged 审核仅首包遇到，后续版本直接放行。registry 里另有自动占位版本 `0.0.0-stage`，非本插件产物、忽略）。`dsh-plugin-scout`、`dsh-plugin-finder` 已被别人占用，勿改回旧名 |
+| 版本 | 0.4.6 三处同步：`package.json`、`index.js` `const VERSION = '0.4.6'`、CHANGELOG 顶部 |
+| 本地安装 | profile `desktop`，以 `link:C:/Users/Administrator/Documents/dsh-plugins-filter` 依赖安装；`plugin_manager install_bundle` 返回 `application: applied`；link 安装，bundle 版本始终 = 本目录代码版本（当前 0.4.6） |
 | 运行时状态 | 重装后需要**刷新页面**（URL 以运行时提示 / `dsh web` 输出为准，每次重启端口会变）才会加载新的客户端 bundle；刷新后用第 3 节的 Slots inspect 确认 `sidebar.panellist` 有 `{"id":"market-dog","order":22,"active":true}`、`main` 有 key `market-dog` |
 | 测试 | 仓库内没有测试文件；本轮验证用 `/tmp/ms-test/` 下的 `searchtest.mjs`（筛选/分面）、`qualitybench.mjs`（搜索质量双向回归，改 lib/search.js 必跑）、`hosttest.mjs`（Host 路由 + 错误码 + **安装接口**：200/spec 推导、未知插件 404、缺 name 400、无 pluginManager 501；**已安装接口**：只返回 `installed: true` 的 bundle 名、无 pluginManager 501）、`cachetest.mjs`（目录下载失败/磁盘缓存/离线 stale/304 校验，12 项断言）、`refreshjobtest.mjs`（后台刷新：`meta refresh:true` 秒回 + `refresh-status` running→idle、并发搜索单飞合并、离开界面后任务自行完成、源 500 时 stale 兜底，14 断言）、`registertest.mjs`（client 模块槽位注册契约：侧栏 `name/id`、主面板 `name/key`）、`applyrender.mjs`（真 `apply()` + 真 localeSource + React 桩渲染，防黑屏回归）、`browserowsetest.mjs`（浏览模式：`browse:true` 空查询返回全类别条目、按下载量全量排序、`totalMatched`=全目录、类别筛选成员校验、facets 不被自身筛选收窄、非法空查询仍 400）、`render.mjs`（真 client.js → 静态 HTML，供截图；含 `results-install` 安装状态、`results-installed` 已安装行与 `results-preview` 全屏预览镜头），加上 `node --check`。无 e2e |
 | 发布门禁 | `publish_gate` 工具未注入本会话，走手动：`npm pack --dry-run` 25 文件核对 + 发布后 registry tarball sha1 `e04d52354208a63af6c68781a2be022fd026a1f9` 与本地一致；GitHub 已 public；市场条目 PR 已提：[awesome-dsh-plugin#15753](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/15753)（`data/plugins/Zhang-Eli__dsh-market-dog.yml`，category market，双语描述；`screenshots.json` 已推仓库根，市场构建探针自动读取） |
