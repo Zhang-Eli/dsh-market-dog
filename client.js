@@ -19,9 +19,9 @@ window.__ModuleLoader__.load({
     const API_PREFIX = 'market-dog/api/'
     const ASSET_PREFIX = 'market-dog/assets/'
     const ORDER = 22
-    const AUTHOR_NAME = 'Zhang-Eli'
-    const AUTHOR_URL = 'https://github.com/Zhang-Eli'
-    const REPO_URL = 'https://github.com/Zhang-Eli/dsh-market-dog'
+    const AUTHOR_NAME = 'wzvx'
+    const AUTHOR_URL = 'https://github.com/wzvx'
+    const REPO_URL = 'https://github.com/wzvx/dsh-market-dog'
     const ISSUES_URL = `${REPO_URL}/issues`
     const STORAGE_DESCRIPTION = 'market-dog:description'
     const STORAGE_SORT = 'market-dog:sort'
@@ -541,11 +541,13 @@ window.__ModuleLoader__.load({
     }
 
     /* Author badge: entries published under the plugin author's GitHub
-       account get a small nameless mark next to the title. */
-    const AUTHOR_LOGIN = 'zhang-eli'
+       account get a small nameless mark next to the title. The account was
+       renamed from `zhang-eli` to `wzvx`; catalog entries under either
+       login (any casing) still count as mine. */
+    const AUTHOR_LOGINS = ['wzvx', 'zhang-eli']
 
     function isAuthorPlugin(entry) {
-      return typeof entry.owner === 'string' && entry.owner.toLowerCase() === AUTHOR_LOGIN
+      return typeof entry.owner === 'string' && AUTHOR_LOGINS.includes(entry.owner.toLowerCase())
     }
 
     /* ------------------------------------------------------------------ */

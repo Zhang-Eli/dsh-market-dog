@@ -64,7 +64,7 @@ dsh plugin --profile web add <this-directory>
 
 ## 反馈
 
-遇到问题请到 [Issues](https://github.com/Zhang-Eli/dsh-market-dog/issues) 反馈。
+遇到问题请到 [Issues](https://github.com/wzvx/dsh-market-dog/issues) 反馈。
 
 ## License
 

@@ -2,14 +2,14 @@
 
 > 给下一个开发 session 的「项目记忆」。发版或收工时更新；新 session 开场先读这份文档，
 > 再读 `CHANGELOG.md` 与 `git log --oneline -10`。
-> 最后更新：2026-11-13（**0.4.5 已发布**：GitHub `Zhang-Eli/dsh-market-dog` + tag `v0.4.5` + npm `dsh-market-dog@0.4.5`。本版本内容：搜索质量三改（IDF 稀有度加权/域消歧/字面升级）、刷新目录后台化+3 秒浮窗、双击类别按下载量浏览、作者徽标、用户向 README 重写。明细见 CHANGELOG.md。市场条目 PR 未提——上游门禁要求仓库 ≥1 天，2026-11-14 后提）。
+> 最后更新：2026-11-13（**0.4.5 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.5` + npm `dsh-market-dog@0.4.5`。本版本内容：搜索质量三改（IDF 稀有度加权/域消歧/字面升级）、刷新目录后台化+3 秒浮窗、双击类别按下载量浏览、作者徽标、用户向 README 重写。明细见 CHANGELOG.md。市场条目 PR 未提——上游门禁要求仓库 ≥1 天，2026-11-14 后提）。
 
 ## 1. 当前状态
 
 | 项目 | 现状 |
 | --- | --- |
 | 仓库路径 | `C:\\Users\\Administrator\\Documents\\dsh-plugins-filter`（开发工作区） |
-| git | 已初始化：远端 `https://github.com/Zhang-Eli/dsh-market-dog`（public，main）；`9866452` Release 0.4.5（tag `v0.4.5` 指此处）→ `fa8b197` screenshots.json |
+| git | 已初始化：远端 `https://github.com/wzvx/dsh-market-dog`（public，main；2026-11-18 GitHub 账号 zhang-eli→wzvx 改名，remote 已更新）；`9866452` Release 0.4.5（tag `v0.4.5` 指此处）→ `fa8b197` screenshots.json |
 | npm | **已发布 0.4.5**（staged 审核放行，`latest`=0.4.5；registry 里另有自动占位版本 `0.0.0-stage`，非本插件产物、忽略）。`dsh-plugin-scout`、`dsh-plugin-finder` 已被别人占用，勿改回旧名 |
 | 版本 | 0.4.5 三处同步：`package.json`、`index.js` `const VERSION = '0.4.5'`、CHANGELOG 顶部 |
 | 本地安装 | profile `desktop`，以 `link:C:/Users/Administrator/Documents/dsh-plugins-filter` 依赖安装；`plugin_manager install_bundle` 返回 `application: applied`；link 安装，bundle 版本始终 = 本目录代码版本（当前 0.4.5） |

@@ -10,7 +10,7 @@ import { searchCatalog } from './lib/search.js'
 export const name = 'dsh-market-dog'
 export const inject = ['webServer']
 
-const VERSION = '0.4.5'
+const VERSION = '0.4.6'
 const DEFAULT_CATALOG_URL = 'https://awesome-dsh-plugin.com/plugins.json'
 const PREFIX = '/market-dog/api/'
 const ASSET_PREFIX = '/market-dog/assets/'

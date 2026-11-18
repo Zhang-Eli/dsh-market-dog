@@ -1,17 +1,17 @@
 {
   "name": "dsh-market-dog",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "type": "module",
   "description": "Market Dog: describe the plugin you want in plain language. It extracts bilingual keywords, matches them against the DSH plugin catalog, and ranks the results by relevance or downloads.",
   "license": "MIT",
-  "author": "Zhang-Eli",
+  "author": "wzvx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zhang-Eli/dsh-market-dog.git"
+    "url": "git+https://github.com/wzvx/dsh-market-dog.git"
   },
-  "homepage": "https://github.com/Zhang-Eli/dsh-market-dog#readme",
+  "homepage": "https://github.com/wzvx/dsh-market-dog#readme",
   "bugs": {
-    "url": "https://github.com/Zhang-Eli/dsh-market-dog/issues"
+    "url": "https://github.com/wzvx/dsh-market-dog/issues"
   },
   "keywords": [
     "dsh",
