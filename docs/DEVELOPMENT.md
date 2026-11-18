@@ -2,7 +2,7 @@
 
 > 给下一个开发 session 的「项目记忆」。发版或收工时更新；新 session 开场先读这份文档，
 > 再读 `CHANGELOG.md` 与 `git log --oneline -10`。
-> 最后更新：2026-11-18（**0.4.6 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.6`（`15589c9`）+ npm `dsh-market-dog@0.4.6`，tarball shasum `5371d58e5b04a5d933a094a17a844842e9c6ab91`。本版本内容：GitHub 账号 zhang-eli→wzvx 改名，仓库/作者/元数据全量指向新账号；「My work」徽标同时匹配新旧 owner（市场目录 slug 过渡期新旧并存）。上游市场条目文件仍是 `data/plugins/Zhang-Eli__dsh-market-dog.yml`（#15753 已合入的旧路径），改名需另开上游 PR。0.4.5 内容见 CHANGELOG。）
+> 最后更新：2026-11-18（**0.4.6 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.6`（`15589c9`）+ npm `dsh-market-dog@0.4.6`，tarball shasum `5371d58e5b04a5d933a094a17a844842e9c6ab91`。本版本内容：GitHub 账号 zhang-eli→wzvx 改名，仓库/作者/元数据全量指向新账号；「My work」徽标同时匹配新旧 owner（市场目录 slug 过渡期新旧并存）。上游市场条目文件仍是 `data/plugins/Zhang-Eli__dsh-market-dog.yml`（#15753 已合入的旧路径），改名 PR 已提：[awesome-dsh-plugin#16542](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/16542)（一次改掉该账号全部 4 个条目）。0.4.5 内容见 CHANGELOG。）
 >
 > 历史：2026-11-13（**0.4.5 已发布**：GitHub `wzvx/dsh-market-dog` + tag `v0.4.5` + npm `dsh-market-dog@0.4.5`。本版本内容：搜索质量三改（IDF 稀有度加权/域消歧/字面升级）、刷新目录后台化+3 秒浮窗、双击类别按下载量浏览、作者徽标、用户向 README 重写。明细见 CHANGELOG.md。市场条目 PR 未提——上游门禁要求仓库 ≥1 天，2026-11-14 后提）。
 
